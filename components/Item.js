@@ -11,22 +11,16 @@ export default function Item({ item, index }) {
       </View>
 
       <ScrollView style={styles.traitsList}>
-        <View style={styles.traitItem}>
-          <Text>trait</Text>
-          <Stars rating={5} />
-        </View>
-        <View style={styles.traitItem}>
-          <Text>trait</Text>
-          <Stars rating={5} />
-        </View>
-        <View style={styles.traitItem}>
-          <Text>trait</Text>
-          <Stars rating={5} />
-        </View>
-        <View style={styles.traitItem}>
-          <Text>trait</Text>
-          <Stars rating={5} />
-        </View>
+        {Object.keys(item).map((key) => {
+          if (key !== "breed") {
+            return (
+              <View key={key} style={styles.traitItem}>
+                <Text>{key}: </Text>
+                <Stars rating={item[key]} />
+              </View>
+            );
+          }
+        })}
       </ScrollView>
     </View>
   );
