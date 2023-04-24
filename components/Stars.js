@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Stars({ rating }) {
-  const stars = Array(rating).fill("⭐️");
+  const rate = Math.floor(rating);
+  const stars = Array(rate).fill("⭐️");
 
   return (
     <View style={styles.stars}>

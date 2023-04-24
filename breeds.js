@@ -15,7 +15,24 @@ const getBreeds = (name) => {
   return arr;
 };
 
+const getAverageDogRating = (index) => {
+  const dog = dogs[index];
+  const count = Object.keys(dog).length;
+  let total = 0;
+
+  for (const key in dog) {
+    if (dog.hasOwnProperty(key)) {
+      const value = dog[key];
+      if (typeof value === "number") {
+        total += value;
+      }
+    }
+  }
+  return total / count;
+};
+// console.log(Object.keys(dog));
+
 const cats = getBreeds("cat_breeds");
 const dogs = getBreeds("dog_breeds");
 
-export { petTypes, cats, dogs };
+export { petTypes, cats, dogs, getAverageDogRating };
